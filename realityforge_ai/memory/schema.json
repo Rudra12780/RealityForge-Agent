@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RealityForgeProjectMemory",
+  "type": "object",
+  "description": "Persistent memory schema for RealityForge AI. Stores project intelligence, verification records, and approved decisions.",
+  "properties": {
+    "project_name": { "type": "string" },
+    "last_updated": { "type": "string" },
+    "schema_version": { "type": "string" },
+    "project_architecture": {
+      "type": "object",
+      "properties": {
+        "stack_summary": { "type": "string" },
+        "topology": { "type": "string" },
+        "entry_points": { "type": "array", "items": { "type": "string" } },
+        "core_services": { "type": "array", "items": { "type": "string" } },
+        "database_engines": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "previous_analysis_findings": {
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string" },
+        "verified_bugs": { "type": "array", "items": { "type": "string" } },
+        "security_risks": { "type": "array", "items": { "type": "string" } },
+        "performance_bottlenecks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "approved_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "change_id": { "type": "string" },
+          "approved_at": { "type": "string" },
+          "description": { "type": "string" },
+          "modified_files": { "type": "array", "items": { "type": "string" } },
+          "git_branch": { "type": "string" },
+          "commit_sha": { "type": "string" }
+        }
+      }
+    },
+    "test_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string" },
+          "syntax_check": { "type": "string" },
+          "type_check": { "type": "string" },
+          "unit_tests": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "known_risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "risk_id": { "type": "string" },
+          "severity": { "type": "string", "enum": ["Critical", "High", "Medium", "Low"] },
+          "module": { "type": "string" },
+          "description": { "type": "string" },
+          "mitigation_plan": { "type": "string" }
+        }
+      }
+    },
+    "previous_engineering_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "decision_id": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "context": { "type": "string" },
+          "chosen_approach": { "type": "string" },
+          "rejected_alternatives": { "type": "array", "items": { "type": "string" } },
+          "rationale": { "type": "string" },
+          "user_approved": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_architecture",
+    "previous_analysis_findings",
+    "approved_changes",
+    "test_results",
+    "known_risks",
+    "previous_engineering_decisions"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "rf-workspace-test",
+  "version": "1.0.0",
+  "description": "Disposable workspace for verifying global RealityForge AI discovery and invocation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test/test.js"
+  }
+}
