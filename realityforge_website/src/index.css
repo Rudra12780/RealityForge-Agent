@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: theme('colors.slate.200');
+  }
+  .dark * {
+    border-color: #353750;
+  }
+}
+
+/* Custom subtle scrollbar with Eclipse Elixir tones */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f4260;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #52567c;
+}
+
+/* Subtle dot grid pattern on Eclipse Elixir */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(rgba(142, 144, 166, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Global On-Click Ripple Effects */
+@keyframes click-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes click-halo {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4.0);
+    opacity: 0;
+  }
+}
+
+@keyframes click-sparkle {
+  0% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+  }
+}
+
+.animate-click-ripple {
+  animation: click-ripple 0.55s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-click-halo {
+  animation: click-halo 0.65s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-click-sparkle {
+  animation: click-sparkle 0.4s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Realistic Typing Cursor Animation for Code Sections */
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity;
+}
